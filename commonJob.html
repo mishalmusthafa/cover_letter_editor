@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <link rel="stylesheet" href="style.css"></link>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Common Job Cover Letter editor</title>
+    </head>
+    <body>
+      <nav class="nav-bar">
+        <a href="/" class="btn ">Home</a>
+      </nav>
+      <div class="container">
+          <h1>Common Job Cover Letter</h1>
+
+        <!-- Form Field -->
+        <form action="submit" id="coverletter-form" class=" form-container">
+          <!-- Personal Details -->
+           <div>
+            <p>Your Details</p>
+            <div class="form-group">
+              <label for="name">My Name:</label>
+              <input type="text" id="name" name="name" class="input">
+            </div>
+            <div class="form-group">
+              <label for="address" class="label">Your Address:</label>
+              <input type="text"  id="address" name="address" class="input">
+                </input>
+            </div>
+            <div class="form-group">
+              <label for="email" class="label">Your Email:</label>
+              <input type="email" id="email" name="email" class="input">
+            </div>
+            <div class="form-group">
+              <label for="phone" class="label">Your Phone:</label>
+              <input type="number" id="phone" name="phone" class="input">
+            </div>
+           </div>
+             
+             <!-- Company Details -->
+              <div>
+                <p>Company Details:</p>
+                <div class="form-group">
+                  <label for="company-name" class="label">Company Name:</label>
+                  <input type="text" id="company-name" name="company-name" class="input" >
+                </div>
+                <div class="form-group">
+                  <label for="company-address" class="label">Company Address:</label>
+                  <input type="text" id="company-address" name="company-address" class="input"></input>
+                </div>
+                <div class="form-group">
+                  <label for="job-title" class="label">Job Title:</label>
+                  <input type="text" id="job-title" name="job-title" class="input"></input>
+                </div>
+              </div>
+             
+             <input type="submit" value="Submit" class="btn" id="submit-button"></input>
+           </form>
+
+
+        <!-- Edited cover letter -->
+        <div id="cover-letter" class="cover-letter">
+            <div id="company-my-details">
+                <ul class="details-list" id="my-details">
+                    <li data-field="my-name"><strong>[Your Name]</strong></li>
+                    <li data-field="my-address">[Your Location]</li>
+                    <li data-field="my-email">[Your Email]</li>
+                    <li data-field="my-phone">[Your Number]</li>
+                </ul><br>
+                <ul class="details-list" id="company-details">
+                    <li ><strong>Hiring Manager</strong></li>
+                    <li data-field="company-name">[Company Name]</li>
+                    <li data-field="company-address">[Company Address]</li>
+                </ul><br>
+            </div>
+
+            <div id="cover-letter">
+                <p><strong>Dear Hiring Manager,</strong></p>
+                <p>
+                    I am writing to express my interest in the
+                    <span data-field="job-title">[Job Title]</span> position at
+                    <span data-field="company-name">[Company Name]</span>, as advertised. With a strong background in
+                    sales, digital marketing, data entry, and inventory
+                    management, I bring a diverse skill set and a proven track
+                    record of driving results, enhancing customer satisfaction,
+                    and optimizing operational efficiency.
+                </p>
+                <p>
+                  In my previous role as a <strong>Retail Sales Associate & Storekeeper at KM Traders</strong>, I successfully assisted customers in selecting products, managed inventory, and maintained accurate sales records, contributing to a 15% increase in sales. My ability to build strong customer relationships and ensure a seamless shopping experience has consistently led to improved customer retention and repeat business.
+                </p>
+                <p>
+                  Additionally, my experience as an <strong>SEO Associate</strong> at Mailing Data Solutions allowed me to develop expertise in digital marketing, including keyword research, on-page SEO optimization, and Google Ads management. I achieved a 25% increase in organic traffic and a 35% improvement in keyword rankings, demonstrating my ability to leverage data-driven strategies to enhance online visibility and engagement.
+                </p>
+                <p>As a Data Entry Specialist at Xyram Software Solutions, I honed my attention to detail and organizational skills, maintaining 99% accuracy in data entry and processing. I also collaborated with cross-functional teams to streamline data management processes, ensuring timely and secure handling of sensitive information.</p>
+                <p>
+                  I am proficient in tools such as <strong>Google Analytics, Microsoft Excel, CRM software, and e-commerce platforms</strong>, which enable me to adapt quickly to new systems and contribute effectively to your team. My multilingual abilities (English, Malayalam, Hindi, and Tamil) further enhance my capacity to communicate and connect with diverse audiences.
+                </p>
+                <p>
+                  I am eager to bring my skills in sales, digital marketing, data management, and customer service to <span data-field="company-name">[Company Name]</span>, where I can contribute to your goals and drive meaningful results. I am confident that my proactive approach and dedication to excellence align with the values of your organization.
+                </p>
+                <p>
+                  Thank you for considering my application. I would welcome the opportunity to discuss how my experiences and skills can benefit your team. Please feel free to contact me at <span data-field="my-phone">+971 586863715 </span> or <span data-field="my-email">mishalmusthafa12@gmail.com</span> to schedule an interview.
+                </p>
+                <p><strong>Sincerely,</strong><br><span data-field="my-name">[Your Name]</span></p>
+            </div>
+        </div>
+      </div>
+      <script src="script.js"></script>
+    </body>
+</html>
