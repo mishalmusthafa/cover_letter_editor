@@ -22,31 +22,34 @@ const formFields = {
     jobTitle: document.getElementById('job-title'),
 };
 
-// Load saved form from locala storage
+// Load saved form from local storage
 function loadFormData() {
-    const savedData = localStorage.getItem('userDetails');
-    if (savedData) {
-        const userDetails = JSON.parse(savedData);
+    try {
+        const savedData = localStorage.getItem('userDetails');
+        if (savedData) {
+            const userDetails = JSON.parse(savedData);
 
-        Object.keys(formFields).forEach((key) => {
-            if (userDetails[key]) {
-                formFields[key].value = userDetails[key];
-            }
-        });
+            Object.keys(formFields).forEach((key) => {
+                if (userDetails[key]) {
+                    formFields[key].value = userDetails[key];
+                }
+            });
+        }
+    } catch (error) {
+        console.log('Error Getting data from local storage', error);
     }
 }
 
 // Save Form Data To Local Storage
 function saveData() {
-    const userDetails = {
-        name: formFields.name.value,
-        address: formFields.address.value,
-        email: formFields.email.value,
-        phone: formFields.phone.value,
-        companyName: formFields.companyName.value,
-        companyAddress: formFields.companyAddress.value,
-        jobTitle: formFields.jobTitle.value,
-    };
+    const userDetails = {};
+
+    Object.keys(formFields).forEach((key) => {
+        if (formFields[key].value) {
+            userDetails[key] = formFields[key].value;
+        }
+        console.log(userDetails);
+    });
 
     localStorage.setItem('userDetails', JSON.stringify(userDetails));
 }
@@ -93,6 +96,7 @@ function updateCoverLetter() {
 
 // Initialize app
 function init() {
+    if (!form) return;
     loadFormData();
     form.addEventListener('submit', onSubmit);
 }
