@@ -48,7 +48,6 @@ function saveData() {
         if (formFields[key].value) {
             userDetails[key] = formFields[key].value;
         }
-        console.log(userDetails);
     });
 
     localStorage.setItem('userDetails', JSON.stringify(userDetails));
@@ -97,6 +96,7 @@ function updateCoverLetter() {
 // Initialize app
 function init() {
     if (!form) return;
+
     loadFormData();
     form.addEventListener('submit', onSubmit);
 }
