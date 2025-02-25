@@ -10,6 +10,10 @@ const companyAddressElements = document.querySelectorAll(
     '[data-field="company-address"]'
 );
 const jobTitleElements = document.querySelectorAll('[data-field="job-title"]');
+const coverLetter = document.getElementById('cover-letter');
+const toastEl = document.getElementById('toast');
+const bodyEl = document.body;
+console.log(bodyEl);
 
 // Form Fields
 const formFields = {
@@ -21,6 +25,17 @@ const formFields = {
     companyAddress: document.getElementById('company-address'),
     jobTitle: document.getElementById('job-title'),
 };
+
+function addToast(variant, text) {
+    toastEl.classList.remove('hidden');
+    toastEl.classList.add(variant);
+    toastEl.textContent = text;
+    setTimeout(() => {
+        toastEl.classList.remove(variant);
+        toastEl.classList.add('hidden');
+        toastEl.textContent = '';
+    }, 3000);
+}
 
 // Load saved form from local storage
 function loadFormData() {
@@ -55,16 +70,25 @@ function saveData() {
 
 function onSubmit(e) {
     e.preventDefault();
-
-    if (
-        formFields.companyName.value.length === 0 ||
-        formFields.jobTitle.value.length === 0
-    ) {
-        alert('please enter the company name and Job Title');
-        return;
-    } else {
-        saveData();
-        updateCoverLetter();
+    try {
+        if (
+            formFields.companyName.value.length === 0 ||
+            formFields.jobTitle.value.length === 0
+        ) {
+            addToast('error', 'please enter company name & Job Title');
+            return;
+        } else {
+            saveData();
+            updateCoverLetter();
+            addToast('success', 'Cover letter updated successfully');
+            window.location.href = '#cover-letter';
+        }
+    } catch (error) {
+        console.log('An error occured', error?.message || error);
+        addToast(
+            'error',
+            'An error occured while processing, Please try again'
+        );
     }
 }
 
